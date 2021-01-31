@@ -11,10 +11,8 @@ import java.util.Properties;
 
 public class WebTablePractices extends TestBase {
 
-
-
     @Test
-    public void verify_order_test() throws IOException {
+    public void verify_order_test() throws InterruptedException, IOException {
         //#1- Create Properties class object
         Properties properties = new Properties();
 
@@ -28,7 +26,9 @@ public class WebTablePractices extends TestBase {
 
         properties.load(file);
 
-        driver.get("webOrderUrl");
+        String url = properties.getProperty("webOrderUrl");
+
+        driver.get(url);
 
         WebOrderUtils.loginToSmartBear(driver);
 
@@ -36,11 +36,8 @@ public class WebTablePractices extends TestBase {
         BrowserUtils.sleep(1);
 
         //Verify "Mark Smith" is in the list
-       // WebOrderUtils.verifyOrder(driver, "Mark Smith");
-
-
-
-
-
+        WebOrderUtils.verifyOrder(driver, "Mark Smith");
     }
+
+
 }
