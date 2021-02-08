@@ -25,9 +25,9 @@ public class tc17_hoverTest {
         action.dragAndDrop(smallCircle, bigCircle).perform();
 
         //3.Assert:	-Text in big circle changed to: “You did great"
-        WebElement text = Driver.getDriver().findElement(By.xpath("//div[.='You did great!']"));
+        WebElement expectedText = Driver.getDriver().findElement(By.xpath("//div[.='You did great!']"));
 
-        Assert.assertTrue(text.isDisplayed());
+        Assert.assertTrue(expectedText.isDisplayed());
 
     }
 }
